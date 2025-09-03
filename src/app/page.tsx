@@ -41,7 +41,7 @@ export default function MaintenancePage() {
         transition={{ delay: 1, duration: 1 }}
         className="mt-10 text-sm md:text-base"
       >
-        <p>📧 info@organoextract.com</p>
+        <p>📧 info@organochoice.com/</p>
         <p>📞 +234-802-768-6565</p>
       </motion.div>
     </main>
