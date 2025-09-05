@@ -1,81 +1,31 @@
-"use client";
+import "./globals.css";
+import { ReactNode } from "react";
+import Navbar from "./navbar"; // import client component
 
-import { useState } from "react";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
+export const metadata = {
+  title: "Organo Choice Global Limited",
+  description: "Natural extracts for a healthier future",
+};
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <header className="bg-green-900 text-white shadow-md">
-      <nav className="container mx-auto flex justify-between items-center p-4">
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold">
-          Organo Choice
-        </Link>
+    <html lang="en">
+      <body className="bg-white text-gray-900">
+        {/* Navbar */}
+        <Navbar />
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6">
-          <li>
-            <Link href="/" className="hover:text-yellow-400">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="hover:text-yellow-400">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/products" className="hover:text-yellow-400">
-              Products
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="hover:text-yellow-400">
-              Contact
-            </Link>
-          </li>
-        </ul>
+        {/* Main content */}
+        <main>{children}</main>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle Menu"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </nav>
-
-      {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-green-800">
-          <ul className="flex flex-col space-y-4 p-4">
-            <li>
-              <Link href="/" className="hover:text-yellow-400" onClick={() => setIsOpen(false)}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-yellow-400" onClick={() => setIsOpen(false)}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/products" className="hover:text-yellow-400" onClick={() => setIsOpen(false)}>
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-yellow-400" onClick={() => setIsOpen(false)}>
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
-    </header>
+        {/* Footer */}
+        <footer className="bg-green-900 text-white text-center py-6 mt-10">
+          <p>
+            © {new Date().getFullYear()} Organo Choice Global Limited. All rights
+            reserved.
+          </p>
+          <p>📧 info@organochoice.com | 📞 +234-802-768-6565</p>
+        </footer>
+      </body>
+    </html>
   );
 }
