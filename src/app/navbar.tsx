@@ -20,8 +20,7 @@ export default function Navbar() {
             height={40}
             className="rounded-full"
           />
-          <span className="text-2xl font-bold">Organo Choice</span>
-        </Link>
+          </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6">
