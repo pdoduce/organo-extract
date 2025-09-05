@@ -2,48 +2,34 @@
 
 import { motion } from "framer-motion";
 
-export default function MaintenancePage() {
+export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-r from-green-900 via-green-700 to-green-900 text-white text-center px-6">
-      {/* Logo / Company Name */}
+    <section className="flex flex-col items-center justify-center min-h-[80vh] bg-gradient-to-r from-green-900 via-green-700 to-green-900 text-white text-center px-6">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-4xl md:text-5xl font-bold mb-4"
+        className="text-4xl md:text-6xl font-bold mb-4"
       >
-        Organo Extracts Global Limited
+        Welcome to Organo Extract Global Limited
       </motion.h1>
 
-      {/* Message */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
-        className="text-lg md:text-xl max-w-2xl mb-8"
+        className="text-lg md:text-2xl max-w-2xl mb-6"
       >
-        Our website is currently under maintenance to serve you better.  
-        We’ll be back online very soon. Thank you for your patience!
+        Harnessing nature’s power to create sustainable health and wellness solutions.
       </motion.p>
 
-      {/* Animated Loader */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin"
-      />
-
-      {/* Contact Info */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="mt-10 text-sm md:text-base"
+      <motion.a
+        href="/about"
+        whileHover={{ scale: 1.1 }}
+        className="bg-yellow-400 text-green-900 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-yellow-300 transition"
       >
-        <p>📧 info@organochoice.com</p>
-        <p>📞 +234-802-768-6565</p>
-      </motion.div>
-    </main>
+        Learn More About Us
+      </motion.a>
+    </section>
   );
 }
