@@ -1,19 +1,27 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="bg-green-900 text-white shadow-md">
       <nav className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
-        <h1 className="text-2xl font-bold">
-          <Link href="/">Organo Choice</Link>
-        </h1>
+        <Link href="/" className="flex items-center space-x-2">
+          <Image
+            src="/countryside_transparent_logo" // put your logo inside public/logo.png
+            alt="Organo Choice Logo"
+            width={40}
+            height={40}
+            className="rounded-full"
+          />
+          <span className="text-2xl font-bold">Organo Choice</span>
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6">
@@ -39,25 +47,25 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
         >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </nav>
 
       {/* Mobile Dropdown */}
-      {menuOpen && (
+      {isOpen && (
         <div className="md:hidden bg-green-800">
-          <ul className="flex flex-col items-center space-y-4 py-6">
+          <ul className="flex flex-col space-y-4 p-4">
             <li>
               <Link
                 href="/"
                 className="hover:text-yellow-400"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => setIsOpen(false)}
               >
                 Home
               </Link>
@@ -66,7 +74,7 @@ export default function Navbar() {
               <Link
                 href="/about"
                 className="hover:text-yellow-400"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => setIsOpen(false)}
               >
                 About
               </Link>
@@ -75,7 +83,7 @@ export default function Navbar() {
               <Link
                 href="/products"
                 className="hover:text-yellow-400"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => setIsOpen(false)}
               >
                 Products
               </Link>
@@ -84,7 +92,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 className="hover:text-yellow-400"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => setIsOpen(false)}
               >
                 Contact
               </Link>
