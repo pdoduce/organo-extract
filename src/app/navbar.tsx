@@ -14,7 +14,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <Image
-            src="/countryside_transparent_logo" // put your logo inside public/logo.png
+            src="/logo.png" // put your logo inside public/logo.png
             alt="Organo Choice Logo"
             width={40}
             height={40}
